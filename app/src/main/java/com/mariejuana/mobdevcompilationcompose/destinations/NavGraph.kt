@@ -14,9 +14,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.mariejuana.mobdevcompilationcompose.ui.screens.AppDrawer
+import com.mariejuana.mobdevcompilationcompose.ui.screens.activities.minigame1.TheStruggleScreen
+import com.mariejuana.mobdevcompilationcompose.ui.screens.activities.randomquotes.RandomQuoteScreen
+import com.mariejuana.mobdevcompilationcompose.ui.screens.basics.android_status.AndroidStatusScreen
+import com.mariejuana.mobdevcompilationcompose.ui.screens.basics.mini_calculator.MiniCalculatorScreen
 import com.mariejuana.mobdevcompilationcompose.ui.screens.home.HomeScreen
 import com.mariejuana.mobdevcompilationcompose.ui.screens.basics.odd_or_even.OddOrEvenScreen
 import com.mariejuana.mobdevcompilationcompose.ui.screens.basics.print_name.PrintNameScreen
+import com.mariejuana.mobdevcompilationcompose.ui.screens.lectures.LM1Screen
+import com.mariejuana.mobdevcompilationcompose.ui.screens.lectures.LM2Screen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -39,8 +45,18 @@ fun NavGraph(
         AppDrawer(
             route = currentRoute,
             navigateToHome = { navigationActions.navigateToHome() },
+
             navigateToOddOrEven = { navigationActions.navigateToOddOrEven() },
-            navigateToPrintName = {navigationActions.navigateToPrintName()},
+            navigateToPrintName = { navigationActions.navigateToPrintName() },
+            navigateToAndroidStatus = { navigationActions.navigateToAndroidStatus() },
+            navigateToMiniCalculator = { navigationActions.navigateToMiniCalculator() },
+
+            navigateToTheStruggle = { navigationActions.navigateToTheStruggle() },
+            navigateToRandomQuotes = { navigationActions.navigateToRandomQuotes() },
+
+            navigateToLM1 = { navigationActions.navigateToLM1() },
+            navigateToLM2 = { navigationActions.navigateToLM2() },
+
             closeDrawer = { coroutineScope.launch { drawerState.close() } },
             modifier = Modifier
         )
@@ -72,11 +88,34 @@ fun NavGraph(
                     HomeScreen()
                 }
 
+                //Basic Bullshite
                 composable(AllDestinations.ODD_OR_EVEN) {
                     OddOrEvenScreen()
                 }
                 composable(AllDestinations.PRINT_NAME) {
                     PrintNameScreen()
+                }
+                composable(AllDestinations.ANDROID_STATUS) {
+                    AndroidStatusScreen()
+                }
+                composable(AllDestinations.MINI_CALCULATOR) {
+                    MiniCalculatorScreen()
+                }
+
+                //Lectures
+                composable(AllDestinations.LM1) {
+                    LM1Screen()
+                }
+                composable(AllDestinations.LM2) {
+                    LM2Screen()
+                }
+
+                //Activities
+                composable(AllDestinations.THE_STRUGGLE) {
+                    TheStruggleScreen()
+                }
+                composable(AllDestinations.RANDOM_QUOTES) {
+                    RandomQuoteScreen()
                 }
             }
         }

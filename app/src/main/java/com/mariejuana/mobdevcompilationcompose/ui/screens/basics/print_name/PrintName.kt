@@ -44,7 +44,7 @@ fun PrintNameScreen(printNameViewModel: PrintNameViewModel = viewModel()) {
     var text by remember { mutableStateOf("") }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().padding(15.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
         OutlinedTextField(
@@ -55,7 +55,7 @@ fun PrintNameScreen(printNameViewModel: PrintNameViewModel = viewModel()) {
             },
             label = { Text("Enter your name") },
             singleLine = true,
-            modifier = Modifier.fillMaxWidth().padding(10.dp)
+            modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(

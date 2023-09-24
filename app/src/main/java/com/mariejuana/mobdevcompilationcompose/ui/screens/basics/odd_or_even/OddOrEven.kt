@@ -48,7 +48,6 @@ class OddEvenViewModel : ViewModel() {
 fun OddOrEvenScreen(oddEvenViewModel: OddEvenViewModel = viewModel()) {
     var text by remember { mutableStateOf("") }
 
-    // Observe the LiveData
     val resultText by oddEvenViewModel.text.observeAsState("")
 
     Column(
@@ -84,7 +83,7 @@ fun OddOrEvenScreen(oddEvenViewModel: OddEvenViewModel = viewModel()) {
 
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = resultText, // Use the observed LiveData here
+            text = resultText,
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()

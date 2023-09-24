@@ -5,9 +5,17 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.rounded.Abc
+import androidx.compose.material.icons.rounded.Android
+import androidx.compose.material.icons.rounded.Calculate
+import androidx.compose.material.icons.rounded.HdrStrong
+import androidx.compose.material.icons.rounded.Notes
+import androidx.compose.material.icons.rounded.Numbers
+import androidx.compose.material.icons.rounded.WrapText
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,8 +39,8 @@ fun AppDrawer(
 
     navigateToHome: () -> Unit = {},
 
-    navigateToPrintName: () -> Unit = {},
     navigateToOddOrEven: () -> Unit = {},
+    navigateToPrintName: () -> Unit = {},
     navigateToAndroidStatus: () -> Unit = {},
     navigateToMiniCalculator: () -> Unit = {},
 
@@ -52,7 +60,7 @@ fun AppDrawer(
             label = {
                 Text(
                     text = stringResource(id = R.string.menu_home),
-                    style = MaterialTheme.typography.labelMedium
+                    style = MaterialTheme.typography.bodyMedium
                 )
             },
             modifier = Modifier.padding(10.dp),
@@ -64,14 +72,15 @@ fun AppDrawer(
             icon = {
                 Icon(
                     imageVector = Icons.Default.Home,
-                    contentDescription = null) },
+                    contentDescription = null,
+                    Modifier.size(30.dp))},
             shape = MaterialTheme.shapes.medium
         )
 
         //Basic Activities text
         Text(
-            text = "Basic Activities",
-            modifier = Modifier.padding(10.dp),
+            text = "Basic Bullshite",
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 5.dp, bottom = 5.dp),
             style = MaterialTheme.typography.titleMedium
         )
 
@@ -83,7 +92,7 @@ fun AppDrawer(
                     style = MaterialTheme.typography.labelMedium
                 )
             },
-            modifier = Modifier.padding(10.dp),
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
             selected = route == AllDestinations.ODD_OR_EVEN,
             onClick = {
                 navigateToOddOrEven()
@@ -91,8 +100,9 @@ fun AppDrawer(
             },
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Warning,
-                    contentDescription = null) },
+                    imageVector = Icons.Rounded.Numbers,
+                    contentDescription = null,
+                    Modifier.size(30.dp))},
             shape = MaterialTheme.shapes.medium
         )
 
@@ -104,7 +114,7 @@ fun AppDrawer(
                     style = MaterialTheme.typography.labelMedium
                 )
             },
-            modifier = Modifier.padding(10.dp),
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
             selected = route == AllDestinations.PRINT_NAME,
             onClick = {
                 navigateToPrintName()
@@ -112,48 +122,155 @@ fun AppDrawer(
             },
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Warning,
-                    contentDescription = null) },
+                    imageVector = Icons.Rounded.Abc,
+                    contentDescription = null,
+                    Modifier.size(30.dp))},
             shape = MaterialTheme.shapes.medium
         )
 
-        //
+        //Android Status
         NavigationDrawerItem(
             label = {
                 Text(
-                    text = stringResource(id = R.string.menu_printname),
+                    text = stringResource(id = R.string.menu_android_status),
                     style = MaterialTheme.typography.labelMedium
                 )
             },
-            modifier = Modifier.padding(10.dp),
-            selected = route == AllDestinations.PRINT_NAME,
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
+            selected = route == AllDestinations.ANDROID_STATUS,
             onClick = {
-                navigateToOddOrEven()
+                navigateToAndroidStatus()
                 closeDrawer()
             },
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Warning,
-                    contentDescription = null) },
+                    imageVector = Icons.Rounded.Android,
+                    contentDescription = null,
+                    Modifier.size(30.dp)) },
             shape = MaterialTheme.shapes.medium
         )
+
+        //Mini Calculator
         NavigationDrawerItem(
             label = {
                 Text(
-                    text = stringResource(id = R.string.menu_printname),
+                    text = stringResource(id = R.string.menu_calculator),
                     style = MaterialTheme.typography.labelMedium
                 )
             },
-            modifier = Modifier.padding(10.dp),
-            selected = route == AllDestinations.PRINT_NAME,
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
+            selected = route == AllDestinations.MINI_CALCULATOR,
             onClick = {
-                navigateToOddOrEven()
+                navigateToMiniCalculator()
                 closeDrawer()
             },
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Warning,
-                    contentDescription = null) },
+                    imageVector = Icons.Rounded.Calculate,
+                    contentDescription = null,
+                    Modifier.size(30.dp)) },
+            shape = MaterialTheme.shapes.medium
+        )
+
+        //Lectures
+        Text(
+            text = "Lectures",
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 5.dp, bottom = 5.dp),
+            style = MaterialTheme.typography.titleMedium
+        )
+
+        //LM1
+        NavigationDrawerItem(
+            label = {
+                Text(
+                    text = stringResource(id = R.string.menu_LM1),
+                    style = MaterialTheme.typography.labelMedium
+                )
+            },
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
+            selected = route == AllDestinations.LM1,
+            onClick = {
+                navigateToLM1()
+                closeDrawer()
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Rounded.Notes,
+                    contentDescription = null,
+                    Modifier.size(30.dp)) },
+            shape = MaterialTheme.shapes.medium
+        )
+
+        //LM2
+        NavigationDrawerItem(
+            label = {
+                Text(
+                    text = stringResource(id = R.string.menu_LM2),
+                    style = MaterialTheme.typography.labelMedium
+                )
+            },
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
+            selected = route == AllDestinations.LM2,
+            onClick = {
+                navigateToLM2()
+                closeDrawer()
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Rounded.Notes,
+                    contentDescription = null,
+                    Modifier.size(30.dp)) },
+            shape = MaterialTheme.shapes.medium
+        )
+
+        //Lectures
+        Text(
+            text = "Activities",
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 5.dp, bottom = 5.dp),
+            style = MaterialTheme.typography.titleMedium
+        )
+
+        //The Struggle
+        NavigationDrawerItem(
+            label = {
+                Text(
+                    text = stringResource(id = R.string.menu_minigame1),
+                    style = MaterialTheme.typography.labelMedium
+                )
+            },
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
+            selected = route == AllDestinations.THE_STRUGGLE,
+            onClick = {
+                navigateToTheStruggle()
+                closeDrawer()
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Rounded.HdrStrong,
+                    contentDescription = null,
+                    Modifier.size(30.dp)) },
+            shape = MaterialTheme.shapes.medium
+        )
+
+        //Random Quote
+        NavigationDrawerItem(
+            label = {
+                Text(
+                    text = stringResource(id = R.string.menu_randomquotes),
+                    style = MaterialTheme.typography.labelMedium
+                )
+            },
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 5.dp),
+            selected = route == AllDestinations.RANDOM_QUOTES,
+            onClick = {
+                navigateToRandomQuotes()
+                closeDrawer()
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Rounded.WrapText,
+                    contentDescription = null,
+                    Modifier.size(30.dp)) },
             shape = MaterialTheme.shapes.medium
         )
     }
@@ -162,15 +279,13 @@ fun AppDrawer(
 
 @Composable
 fun DrawerHeader(modifier: Modifier) {
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.Start,
+    Row (
         modifier = modifier
-            .background(MaterialTheme.colorScheme.secondary)
+            .background(MaterialTheme.colorScheme.primaryContainer)
             .padding(dimensionResource(id = R.dimen.header_padding))
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-
         Image(
             painterResource(id = R.drawable.ic_launcher_background),
             contentDescription = null,
@@ -180,18 +295,27 @@ fun DrawerHeader(modifier: Modifier) {
                 .clip(CircleShape)
         )
         Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.spacer_padding)))
-
-        Text(
-            text = stringResource(id = R.string.app_name),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onPrimary,
-        )
+        Column {
+            Text(
+                text = stringResource(id = R.string.app_name),
+                style = MaterialTheme.typography.labelMedium
+            )
+            Text(
+                text = stringResource(id = R.string.app_made_by),
+                style = MaterialTheme.typography.labelMedium
+            )
+        }
     }
 }
 
 @Preview
 @Composable
-fun DrawerHeaderPreview() {
+fun AppDrawerPreview() {
     AppDrawer(modifier = Modifier, route = AllDestinations.HOME)
+}
+
+@Preview
+@Composable
+fun DrawerHeaderPreview() {
+    DrawerHeader(modifier = Modifier)
 }

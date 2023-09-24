@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MOBDEV Compilation (Compose)</string>
+    <string name="app_made_by">Created by Jericho Diaz</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
